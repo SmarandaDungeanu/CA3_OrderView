@@ -1,0 +1,23 @@
+extends layout
+block content
+    div.container
+            table.table.table-striped.table-bordered.table-hover
+                thead
+                   tr
+                      th="Id"
+                      th="Name"
+                      th="Date"
+                      th="Address"
+                tbody
+                    each o in orders
+                       each c in customers
+                        if o.customerId == c._id
+                         tr
+                           th
+                             =o._id
+                           td
+                             =c.contactName
+                           td
+                             =o.orderDate
+                           td
+                             =c.address
