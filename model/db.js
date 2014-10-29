@@ -101,3 +101,6 @@ var EmployeeSchema = mongoose.Schema({
 mongoose.model( 'Order', OrderSchema);
 mongoose.model( 'Category', CategorySchema);
 mongoose.model( 'Customer', CustomerSchema);
+mongoose.model( 'Product', ProductSchema);
+mongoose.model( 'Detail', DetailsSchema, 'orderdetails');
+mongoose.model( 'Employee', EmployeeSchema);

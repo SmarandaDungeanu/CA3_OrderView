@@ -1,3 +1,14 @@
 extends layout
 block content
-    p=order
+    div.container-fluid
+        div.jumbotron
+            =order
+        div.row
+            div.col-xs-6
+                =details
+            div.col-xs-6
+                each d in details
+                    each p in products
+                        if(d.productId == p._id)
+                            p
+                                =p
