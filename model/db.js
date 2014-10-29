@@ -104,8 +104,12 @@ mongoose.model( 'Category', CategorySchema);
 mongoose.model( 'Customer', CustomerSchema);
 mongoose.model( 'Product', ProductSchema);
 <<<<<<< HEAD
+<<<<<<< HEAD
 mongoose.model( 'Detail', DetailsSchema);
 =======
 mongoose.model( 'Detail', DetailsSchema, 'orderdetails');
+>>>>>>> origin/Smaranda
+=======
+mongoose.model( 'Detail', DetailsSchema);
 >>>>>>> origin/Smaranda
 mongoose.model( 'Employee', EmployeeSchema);

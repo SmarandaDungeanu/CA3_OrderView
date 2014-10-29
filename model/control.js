@@ -5,9 +5,12 @@ var categories = mongoose.model('Category');
 var customers = mongoose.model('Customer');
 var employees = mongoose.model('Employee');
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 var details = mongoose.model('Detail');
 var products = mongoose.model('Product');
+>>>>>>> origin/Smaranda
+=======
 >>>>>>> origin/Smaranda
 
 function getAllOrders(callback){
@@ -120,6 +123,17 @@ function getEmployeeById(id, callback){
     })
 }
 
+function getEmployeeById(id, callback){
+    employees.findById(id,function(err, customer){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, customer);
+        }
+    })
+}
+
 module.exports = {
     getAllOrders: getAllOrders,
     getAllCategories: getAllCategories,
@@ -128,6 +142,7 @@ module.exports = {
     getCustomerById : getCustomerById,
     getOrderById: getOrderById,
 <<<<<<< HEAD
+<<<<<<< HEAD
     getEmployeeById: getEmployeeById
 =======
     getEmployeeById: getEmployeeById,
@@ -135,3 +150,7 @@ module.exports = {
     getAllProducts: getAllProducts
 >>>>>>> origin/Smaranda
 }
+=======
+    getEmployeeById: getEmployeeById
+}
+>>>>>>> origin/Smaranda
