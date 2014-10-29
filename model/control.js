@@ -59,10 +59,20 @@ function getCustomerById(id, callback){
     })
 }
 
+function getOrderById(id, callback){
+    orders.findById(id,function(err, order){
+        if(err){
+            return callback(err);
+        }
+        callback(null, order);
+    })
+}
+
 module.exports = {
     getAllOrders: getAllOrders,
     getAllCategories: getAllCategories,
     getAllCustomers: getAllCustomers,
     getOrderForCustomer: getOrderForCustomer,
-    getCustomerById : getCustomerById
+    getCustomerById : getCustomerById,
+    getOrderById: getOrderById
 }

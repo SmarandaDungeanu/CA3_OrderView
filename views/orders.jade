@@ -14,7 +14,8 @@ block content
                         if o.customerId == c._id
                          tr
                            th
-                             =o._id
+                               a(href="/orderdetails/#{o._id}")
+                                 =o._id
                            td
                              =c.contactName
                            td
