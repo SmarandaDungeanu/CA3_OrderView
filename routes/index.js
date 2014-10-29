@@ -12,8 +12,12 @@ router.get('/', function(req, res) {
                  if(err){
                      return err;
                  }
+                orders.sort(function(a, b) {
+                   a = new Date(a.orderDate);
+                   b = new Date(b.orderDate);
+                return b-a;
+            });
                  res.render('orders', { title: 'Order Viewer', orders: orders, customers: customers });
-                 // res.render('index', {title: 'Order Viewer', orders: orders});
              })
      })
 });
