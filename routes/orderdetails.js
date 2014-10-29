@@ -1,19 +1,21 @@
+/**
+ * Created by smarandadungeanu on 29/10/14.
+ */
+
 var express = require('express');
 var router = express.Router();
-//var model = require('../database/model');
+var control = require('../model/control');
 
-/* GET home page. */
-router.get('/', function(req, res) {
-    res.render('index', { title: 'MongoDB Viewer' });
+router.get('/:id', function(req, res){
+    var id = req.params.id;
+    control.getOrderById(id, function(err, order){
+        if(err){
+            res.render('error', {title: "Error", message: err.message, statusCode: err.status, errorStack: err.stack });
+        }
+        else{
+            res.render('orderdetails', {title: "Order Details", order : order});
+        }
+    })
 });
 
-
-router.get('/:id',function(req, res) {
-    res.render('index', { title: 'The id was: '+req.params.id });
-});
-
-
-router.get('/:id/:data',function(req, res) {
-    res.render('index', { title: 'The id was: '+req.params.id + req.params.data});
-});
 module.exports = router;
