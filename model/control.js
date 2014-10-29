@@ -4,6 +4,11 @@ var orders = mongoose.model('Order');
 var categories = mongoose.model('Category');
 var customers = mongoose.model('Customer');
 var employees = mongoose.model('Employee');
+<<<<<<< HEAD
+=======
+var details = mongoose.model('Detail');
+var products = mongoose.model('Product');
+>>>>>>> origin/Smaranda
 
 function getAllOrders(callback){
     orders.find(function(err, orders) {
@@ -68,6 +73,41 @@ function getOrderById(id, callback){
         callback(null, order);
     })
 }
+function getEmployeeById(id, callback){
+    employees.findById(id,function(err, customer){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, customer);
+        }
+    })
+}
+
+function getDetailsByOrderId(id, callback){
+    var query = {orderId : id};
+    details.find(query, function(err, details){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, details);
+        }
+    })
+}
+
+function getAllProducts(callback){
+    products.find({}, function(err, products){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, products);
+        }
+    })
+}
+
+
 
 function getEmployeeById(id, callback){
     employees.findById(id,function(err, customer){
@@ -87,5 +127,11 @@ module.exports = {
     getOrderForCustomer: getOrderForCustomer,
     getCustomerById : getCustomerById,
     getOrderById: getOrderById,
+<<<<<<< HEAD
     getEmployeeById: getEmployeeById
+=======
+    getEmployeeById: getEmployeeById,
+    getDetailsByOrderId: getDetailsByOrderId,
+    getAllProducts: getAllProducts
+>>>>>>> origin/Smaranda
 }
