@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
-var db = require("./db");
+//var db = require("./db");
 var orders = mongoose.model('Order');
 var categories = mongoose.model('Category');
 var customers = mongoose.model('Customer');
+var employees = mongoose.model('Employee');
 
 function getAllOrders(callback){
     orders.find(function(err, orders) {
@@ -68,11 +69,23 @@ function getOrderById(id, callback){
     })
 }
 
+function getEmployeeById(id, callback){
+    employees.findById(id,function(err, customer){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, customer);
+        }
+    })
+}
+
 module.exports = {
     getAllOrders: getAllOrders,
     getAllCategories: getAllCategories,
     getAllCustomers: getAllCustomers,
     getOrderForCustomer: getOrderForCustomer,
     getCustomerById : getCustomerById,
-    getOrderById: getOrderById
+    getOrderById: getOrderById,
+    getEmployeeById: getEmployeeById
 }
