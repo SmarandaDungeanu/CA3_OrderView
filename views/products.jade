@@ -15,7 +15,8 @@ block content
             tbody
                 each p in products
                     tr
-                        td #{p._id}
+                        th
+                          a(href='/orders/product/#{p._id}') #{p._id}
                         td #{p.name}
                         td #{p.quantityPerUnit}
                         td #{p.unitPrice}
