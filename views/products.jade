@@ -1,0 +1,26 @@
+extends layout
+block content
+    div.container-fluid
+        table.table.table-striped.table-bordered.table-hover.sortable
+            thead
+                tr
+                    th Id
+                    th Name
+                    th Quantity per Unit
+                    th Unit Price
+                    th Units in Stock
+                    th Units on Order
+                    th Reorder Level
+                    th Discontinued
+            tbody
+                each p in products
+                    tr
+                        td #{p._id}
+                        td #{p.name}
+                        td #{p.quantityPerUnit}
+                        td #{p.unitPrice}
+                        td #{p.unitsInStock}
+                        td #{p.unitsOnOrder}
+                        td #{p.reorderLevel}
+                        td #{p.discontinued}
+

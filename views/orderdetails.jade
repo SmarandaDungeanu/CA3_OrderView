@@ -11,7 +11,7 @@ block content
                          tr
                              th Customer
                              td
-                                 a(href="../customerdetails/#{customer._id}")  #{customer.contactName}
+                                 a(href="../customer/#{customer._id}")  #{customer.contactName}
                          tr
                              th Address
                              td #{order.shipAddress}
@@ -33,7 +33,7 @@ block content
                         tr
                             th Employee
                             td
-                                a(href="../employeedetails/#{employee._id}")  #{employee.firstName} #{employee.lastName}
+                                a(href="../employee/#{employee._id}")  #{employee.firstName} #{employee.lastName}
                         tr
                             th Ship Name
                             td #{order.shipName}

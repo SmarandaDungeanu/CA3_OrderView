@@ -10,15 +10,13 @@ block content
                       th="Address"
                 tbody
                     each o in orders
-                       each c in customers
-                        if o.customerId == c._id
                          tr
                            th
                                a(href="/orderdetails/#{o._id}")
                                  =o._id
                            td
-                             =c.contactName
+                             =o.shipName
                            td
                              =o.orderDate
                            td
-                             =c.address
+                             =o.shipAddress
