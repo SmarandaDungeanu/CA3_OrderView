@@ -2,13 +2,19 @@ doctype html
 html
   head
     meta(charset="UTF-8")
-    title= title
     //link(href="/images/favicon.ico", rel="shortcut icon", type="image/x-icon")
     link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/toastr.min.css')
     link(rel='stylesheet', href='/css/site.css')
-  body
-     nav.navbar.navbar-inverse(role="navigation")
+    title= title
+    style(type='text/css').
+        table {
+            empty-cells: show;
+        }
+        body{
+            padding-top: 65px;
+        }
+    body
+       nav.navbar.navbar-inverse(role="navigation").navbar-fixed-top
          .container-fluid
              .navbar-header
                  span.navbar-brand #{title}
@@ -16,7 +22,7 @@ html
                  ul.nav.navbar-nav
                     li
                         a(href="/") Home
-    block menu
-    block content
-    block footer
-    include scripts
+      block menu
+      block content
+      block footer
+      include scripts

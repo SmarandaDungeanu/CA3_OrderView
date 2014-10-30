@@ -3,6 +3,9 @@ var db = require("./db");
 var orders = mongoose.model('Order');
 var categories = mongoose.model('Category');
 var customers = mongoose.model('Customer');
+var employees = mongoose.model('Employee');
+var details = mongoose.model('Detail');
+var products = mongoose.model('Product');
 
 function getAllOrders(callback){
     orders.find(function(err, orders) {
@@ -68,11 +71,50 @@ function getOrderById(id, callback){
     })
 }
 
+function getDetailsByOrderId(id, callback){
+    var query = {orderId : id};
+    details.find(query, function(err, details){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, details);
+        }
+    })
+}
+
+function getAllProducts(callback){
+    products.find({}, function(err, products){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, products);
+        }
+    })
+}
+
+
+
+function getEmployeeById(id, callback){
+    employees.findById(id,function(err, customer){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, customer);
+        }
+    })
+}
+
 module.exports = {
     getAllOrders: getAllOrders,
     getAllCategories: getAllCategories,
     getAllCustomers: getAllCustomers,
     getOrderForCustomer: getOrderForCustomer,
     getCustomerById : getCustomerById,
-    getOrderById: getOrderById
+    getOrderById: getOrderById,
+    getEmployeeById: getEmployeeById,
+    getDetailsByOrderId: getDetailsByOrderId,
+    getAllProducts: getAllProducts
 }

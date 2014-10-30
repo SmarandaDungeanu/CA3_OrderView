@@ -1,0 +1,43 @@
+extends layout
+block content
+    div.container-fluid
+        div.row.jumbotron
+            div.col-xs-6
+                table.table.table-hover
+                    font(size='4')
+                        tr
+                            th Id
+                            td #{customer._id}
+                        tr
+                            th Company Name
+                            td #{customer.companyName}
+                        tr
+                            th Contact Name
+                            td #{customer.contactName}
+                        tr
+                            th Contact Title
+                            td #{customer.contactTitle}
+                        tr
+                            th Address
+                            td #{customer.address}
+                        tr
+                            th City
+                            td #{customer.city}
+            div.col-xs-6
+                table.table.table-hover
+                    font(size='4')
+                        tr
+                            th Region
+                            td #{customer.region}
+                        tr
+                            th Postal Code
+                            td #{customer.postalCode}
+                        tr
+                            th Country
+                            td #{customer.country}
+                        tr
+                            th Phone
+                            td #{customer.phone}
+                        tr
+                            th Fax
+                            td #{customer.fax}

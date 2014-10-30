@@ -1,13 +1,14 @@
-var mongoose = require( 'mongoose' );
+var mongoose = require('mongoose');
 
-var dbURI = 'mongodb://smara:fotbal@ds033400.mongolab.com:33400/smadb'
+var dbURI = 'mongodb://smara:fotbal@ds033400.mongolab.com:33400/smadb';
+
 mongoose.connect(dbURI);
 
 mongoose.connection.on('connected', function () {
     console.log('Mongoose connected to ' + dbURI);
 });
 
-mongoose.connection.on('error',function (err) {
+mongoose.connection.on('error', function (err) {
     console.log('Mongoose connection error: ' + err);
 });
 
@@ -15,7 +16,7 @@ mongoose.connection.on('disconnected', function () {
     console.log('Mongoose disconnected');
 });
 
-process.on('SIGINT', function() {
+process.on('SIGINT', function () {
     mongoose.connection.close(function () {
         console.log('Mongoose disconnected through app termination');
         process.exit(0);
@@ -101,3 +102,6 @@ var EmployeeSchema = mongoose.Schema({
 mongoose.model( 'Order', OrderSchema);
 mongoose.model( 'Category', CategorySchema);
 mongoose.model( 'Customer', CustomerSchema);
+mongoose.model( 'Product', ProductSchema);
+mongoose.model( 'Detail', DetailsSchema, 'orderdetails');
+mongoose.model( 'Employee', EmployeeSchema);
