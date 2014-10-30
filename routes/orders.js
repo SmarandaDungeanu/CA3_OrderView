@@ -36,5 +36,28 @@ router.get('/customer/:id', function(req, res) {
     })
 });
 
+router.get('/product/:id', function(req, res){
+    var prodId = req.params.id;
+    var theOrders = Array();
+    control.getDetailsByProductId(prodId, function(err,details){
+        if(err){
+            return err;
+        }
+        control.getAllOrders(function(err,orders){
+            if(err){
+                return err;
+            }
+            orders.forEach(function(order){
+                details.forEach(function(detail){
+                    if(order._id===detail.orderId){
+                        theOrders.push(order);
+                    }
+                })
+            })
+            res.render('orders', { title: 'Order Viewer', orders: theOrders})
+        })
+    })
+})
+
 
 module.exports = router;

@@ -96,6 +96,18 @@ function getDetailsByOrderId(id, callback){
     })
 }
 
+function getDetailsByProductId(id, callback){
+    var query = {productId : id};
+    details.find(query, function(err, details){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, details);
+        }
+    })
+}
+
 function getAllProducts(callback){
     products.find({}, function(err, products){
         if(err){
@@ -154,5 +166,6 @@ module.exports = {
     getAllProducts: getAllProducts,
     getProductsOfCategory: getProductsOfCategory,
     getAllEmployees: getAllEmployees,
-    getOrdersForEmployee: getOrdersForEmployee
+    getOrdersForEmployee: getOrdersForEmployee,
+    getDetailsByProductId: getDetailsByProductId
 }
