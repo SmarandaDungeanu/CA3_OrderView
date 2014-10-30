@@ -1,19 +1,6 @@
 extends layout
 block content
     div.container-fluid
-<<<<<<< HEAD
-        div.jumbotron
-            =order
-        div.row
-            div.col-xs-6
-                =details
-            div.col-xs-6
-                each d in details
-                    each p in products
-                        if(d.productId == p._id)
-                            p
-                                =p
-=======
         div.row.jumbotron
             div.col-xs-6
                  table.table.table-hover
@@ -86,5 +73,5 @@ block content
                                     td
                                         -var price = p.unitPrice*d.quantity*(1-d.discount)
                                             =price
->>>>>>> origin/Cristi
+
 
