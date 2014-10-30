@@ -1,3 +1,57 @@
 extends layout
 block content
+<<<<<<< HEAD
     p=employee
+=======
+            div.container-fluid.jumbotron
+                div.row
+                    div.col-lg-6
+                        table.table.table-hover
+                            font(size='4')
+                                tr
+                                    th Id
+                                    td #{employee._id}
+                                tr
+                                    th Name
+                                    td #{employee.titleOfCourtesy} #{employee.firstName} #{employee.lastName}
+                                tr
+                                    th Title
+                                    td #{employee.title}
+                                tr
+                                    th Birth Date
+                                    td #{employee.birthDate}
+                                tr
+                                    th Hire Date
+                                    td #{employee.hireDate}
+                                tr
+                                    th Extension
+                                    td #{employee.extension}
+                    div.col-xs-6
+                        table.table.table-hover
+                            font(size='4')
+                                tr
+                                    th Address
+                                    td #{employee.address}
+                                tr
+                                    th City
+                                    td #{employee.city}
+                                tr
+                                    th Region
+                                    td #{employee.region}
+                                tr
+                                    th Postal Code
+                                    td #{employee.postalCode}
+                                tr
+                                    th Country
+                                    td #{employee.country}
+                                tr
+                                    th Home Phone
+                                    td #{employee.homePhone}
+                div.row
+                    div.col-xs-12
+                        table.table.table-hover
+                            font(size='4')
+                                tr
+                                    th Notes
+                                    td #{employee.notes}
+>>>>>>> origin/Cristi

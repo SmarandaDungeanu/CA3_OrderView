@@ -1,6 +1,7 @@
 extends layout
 block content
     div.container-fluid
+<<<<<<< HEAD
         div.jumbotron
             =order
         div.row
@@ -12,4 +13,78 @@ block content
                         if(d.productId == p._id)
                             p
                                 =p
+=======
+        div.row.jumbotron
+            div.col-xs-6
+                 table.table.table-hover
+                     font(size='4')
+                         tr
+                             th Id
+                             td #{order._id}
+                         tr
+                             th Customer
+                             td
+                                 a(href="../customerdetails/#{customer._id}")  #{customer.contactName}
+                         tr
+                             th Address
+                             td #{order.shipAddress}
+                         tr
+                             th City
+                             td #{order.shipCity}
+                         tr
+                             th Region
+                             td #{order.shipRegion}
+                         tr
+                             th Zip
+                             td #{order.shipPostalCode}
+                         tr
+                             th Country
+                             td #{order.shipCountry}
+            div.col-xs-6
+                table.table.table-hover
+                  font(size='4')
+                        tr
+                            th Employee
+                            td
+                                a(href="../employeedetails/#{employee._id}")  #{employee.firstName} #{employee.lastName}
+                        tr
+                            th Ship Name
+                            td #{order.shipName}
+                        tr
+                            th Order Date
+                            td #{order.orderDate}
+                        tr
+                            th Required Date
+                            td #{order.requiredDate}
+                        tr
+                            th Shipped Date
+                            td #{order.shippedDate}
+                        tr
+                            th Ship Via
+                            td #{order.shipVia}
+                        tr
+                            th Freight
+                            td #{order.freight}
+        div.jumbotron
+            table.table.table-bordered.table-hover
+                thead
+                    tr
+                        th Product
+                        th Unit Price
+                        th Quantity
+                        th Discount
+                        th Price
+                tbody
+                    each d in details
+                        each p in products
+                            if(d.productId == p._id)
+                                tr
+                                    td #{p.name}
+                                    td #{p.unitPrice}
+                                    td #{d.quantity}
+                                    td #{d.discount}
+                                    td
+                                        -var price = p.unitPrice*d.quantity*(1-d.discount)
+                                            =price
+>>>>>>> origin/Cristi
 

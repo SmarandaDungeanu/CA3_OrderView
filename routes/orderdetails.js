@@ -17,7 +17,21 @@ router.get('/:id', function(req, res){
                 if(err){
                     res.send({error: err});
                 }
+<<<<<<< HEAD
                 res.render('orderdetails', {title: "Order Details", order : order, details : details, products: products});
+=======
+                control.getCustomerById(order.customerId, function(err, customer){
+                    if(err){
+                        res.send({error: err});
+                    }
+                    control.getEmployeeById(order.employeeId, function(err, employee){
+                        if(err){
+                            res.send({error: err});
+                        }
+                        res.render('orderdetails', {title: "Order Details", order : order, details : details, products: products, customer: customer, employee: employee});
+                    })
+                })
+>>>>>>> origin/Cristi
             })
         })
     })
