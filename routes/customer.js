@@ -2,6 +2,15 @@ var express = require('express');
 var router = express.Router();
 var control = require('../model/control');
 
+router.get('/', function(req, res) {
+    control.getAllCustomers(function (err, customers) {
+        if (err) {
+            return err;
+        }
+        res.render('customers', {title: 'All Customers', customers: customers});
+    })
+})
+
 router.get('/:id', function(req, res){
     var id = req.params.id;
     control.getCustomerById(id, function(err, customer){

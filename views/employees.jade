@@ -1,0 +1,36 @@
+extends layout
+block content
+    div.container-fluid
+        table.table.table-striped.table-bordered.table-hover.sortable
+            thead
+                tr
+                    th Id
+                    th Name
+                    th Title
+                    th Birth Date
+                    th Hire Date
+                    th Extension
+                    th Address
+                    th City
+                    th Region
+                    th Postal Code
+                    th Country
+                    th Home Phone
+                    th Notes
+            tbody
+                each employee in employees
+                    tr
+                        th
+                            a(href='/orders/employee/#{employee._id}') #{employee._id}
+                        td #{employee.titleOfCourtesy} #{employee.firstName} #{employee.lastName}
+                        td #{employee.title}
+                        td #{employee.birthDate}
+                        td #{employee.hireDate}
+                        td #{employee.extension}
+                        td #{employee.address}
+                        td #{employee.city}
+                        td #{employee.region}
+                        td #{employee.postalCode}
+                        td #{employee.country}
+                        td #{employee.homePhone}
+                        td #{employee.notes}

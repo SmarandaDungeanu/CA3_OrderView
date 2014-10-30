@@ -40,13 +40,26 @@ function getAllCustomers(callback){
     })
 }
 
-function getOrderForCustomer(id, callback){
-    orders.find({customerId:id},function(err, order){
+function getOrdersForCustomer(id, callback){
+    var query = {customerId : id};
+    orders.find(query, function(err, orders){
         if(err){
             return callback(err);
         }
         else{
-            callback(null, order);
+            callback(null, orders);
+        }
+    })
+}
+
+function getOrdersForEmployee(id, callback){
+    var query = {employeeId : id};
+    orders.find(query,function(err, orders){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, orders);
         }
     })
 }
@@ -94,15 +107,37 @@ function getAllProducts(callback){
     })
 }
 
-
-
-function getEmployeeById(id, callback){
-    employees.findById(id,function(err, customer){
+function getProductsOfCategory(catId, callback){
+    var query = {categoryId : catId};
+    products.find(query, function(err, products){
         if(err){
             return callback(err);
         }
         else{
-            callback(null, customer);
+            callback(null, products);
+        }
+    })
+}
+
+
+function getEmployeeById(id, callback){
+    employees.findById(id,function(err, employee){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, employee);
+        }
+    })
+}
+
+function getAllEmployees(callback){
+    employees.find({},function(err,employees){
+        if(err){
+            return callback(err);
+        }
+        else{
+            callback(null, employees);
         }
     })
 }
@@ -111,10 +146,13 @@ module.exports = {
     getAllOrders: getAllOrders,
     getAllCategories: getAllCategories,
     getAllCustomers: getAllCustomers,
-    getOrderForCustomer: getOrderForCustomer,
+    getOrdersForCustomer: getOrdersForCustomer,
     getCustomerById : getCustomerById,
     getOrderById: getOrderById,
     getEmployeeById: getEmployeeById,
     getDetailsByOrderId: getDetailsByOrderId,
-    getAllProducts: getAllProducts
+    getAllProducts: getAllProducts,
+    getProductsOfCategory: getProductsOfCategory,
+    getAllEmployees: getAllEmployees,
+    getOrdersForEmployee: getOrdersForEmployee
 }
