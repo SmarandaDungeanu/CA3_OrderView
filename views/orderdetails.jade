@@ -11,7 +11,10 @@ block content
                          tr
                              th Customer
                              td
-                                 a(href="../customer/#{customer._id}")  #{customer.contactName}
+                                 if customer
+                                     a(href="../customer/#{customer._id}")  #{customer.contactName}
+                                 else
+                                     | -
                          tr
                              th Address
                              td #{order.shipAddress}
@@ -33,7 +36,10 @@ block content
                         tr
                             th Employee
                             td
-                                a(href="../employee/#{employee._id}")  #{employee.firstName} #{employee.lastName}
+                                if employee
+                                    a(href="../employee/#{employee._id}")  #{employee.firstName} #{employee.lastName}
+                                else
+                                    | -
                         tr
                             th Ship Name
                             td #{order.shipName}
@@ -62,16 +68,24 @@ block content
                         th Discount
                         th Price
                 tbody
+                    -var totalPrice = 0
                     each d in details
                         each p in products
                             if(d.productId == p._id)
                                 tr
-                                    td #{p.name}
+                                    td
+                                        a(href="../orders/product/#{p._id}") #{p.name}
                                     td #{p.unitPrice}
                                     td #{d.quantity}
                                     td #{d.discount}
                                     td
                                         -var price = p.unitPrice*d.quantity*(1-d.discount)
+                                            -totalPrice = totalPrice + price
                                             =price
-
+                    tr
+                        td
+                        td
+                        td
+                        td #[b Total price:]
+                        td #[b #{totalPrice}]
 

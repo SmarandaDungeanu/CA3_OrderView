@@ -4,7 +4,7 @@ html
     meta(charset="UTF-8")
     //link(href="/images/favicon.ico", rel="shortcut icon", type="image/x-icon")
     link(rel='stylesheet', href='/css/bootstrap.min.css')
-    link(rel='stylesheet', href='/css/site.css')
+    link(rel='stylesheet', href='/css/scrolltotop.css')
     title= title
     style(type='text/css').
         table {
@@ -25,7 +25,9 @@ html
                  ul.nav.navbar-nav.navbar-right
                      li
                          a(href="javascript:history.back()") Back
-      block menu
-      block content
-      block footer
-      include scripts
+      #content
+            block menu
+            block content
+            block footer
+            a(href="#" class="back-to-top") Back to Top
+       include scripts
